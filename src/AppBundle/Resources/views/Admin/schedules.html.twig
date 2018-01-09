@@ -2,6 +2,20 @@
 
 {% block content %}
 
+<ul class="nav nav-pills">
+  {% for week in weeks %}
+  <li {% if week.start == date %}class="active"{% endif %}>
+    <a href="{{ path('admin_schedules', {
+      year: week.start|date('Y'),
+      month: week.start|date('m'),
+      date: week.start|date('Y-m-d')
+    }) }}">{{ week.start|localizeddate('short', 'none') }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<hr>
+
 <div id="calendar"></div>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -30,5 +44,11 @@
 {% endblock %}
 
 {% block scripts %}
+  <script>
+  window.AppData = window.AppData || {}
+  window.AppData.Schedules = {
+    currentDate: "{{ date|date('c') }}"
+  }
+  </script>
   <script src="{{ asset('js/schedule.js') }}"></script>
 {% endblock %}

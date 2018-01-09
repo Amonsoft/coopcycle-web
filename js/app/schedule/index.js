@@ -1,5 +1,6 @@
 import 'fullcalendar'
 import 'fullcalendar/dist/locale-all'
+import moment from 'moment'
 
 const $calendar = $('#calendar')
 const $modal = $('#event-modal')
@@ -9,6 +10,7 @@ $modal.on('show.bs.modal', function(e) {
 })
 
 $calendar.fullCalendar({
+  defaultDate: moment(window.AppData.Schedules.currentDate),
   defaultView: 'agendaWeek',
   locale: 'fr',
   dayClick: (date, e, view, resource) => {
