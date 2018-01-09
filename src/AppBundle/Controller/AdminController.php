@@ -772,4 +772,13 @@ class AdminController extends Controller
 
         return new JsonResponse($user);
     }
+
+    /**
+     * @Route("/admin/schedule", name="admin_schedule")
+     * @Template()
+     */
+    public function scheduleAction(Request $request)
+    {
+        return [];
+    }
 }
