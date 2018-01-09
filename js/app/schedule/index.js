@@ -2,6 +2,11 @@ import 'fullcalendar'
 import 'fullcalendar/dist/locale-all'
 
 const $calendar = $('#calendar')
+const $modal = $('#event-modal')
+
+$modal.on('show.bs.modal', function(e) {
+
+})
 
 $calendar.fullCalendar({
   defaultView: 'agendaWeek',
@@ -18,22 +23,26 @@ $calendar.fullCalendar({
   },
   eventClick: (event, e, view) => {
     console.log('eventClick', event)
-    $('#event-modal').modal('show')
+    $modal.find('.modal-title').text(event.title)
+    $modal.modal('show')
+  },
+  eventRender: function(event, element) {
+    console.log(element)
   },
   events: [
     {
-        title: 'Shift #1',
-        editable: true,
-        start: '2018-01-09T12:30:00',
-        end: '2018-01-09T16:30:00',
-        allDay: false
+      title: 'Shift #1',
+      editable: true,
+      start: '2018-01-09T12:30:00',
+      end: '2018-01-09T16:30:00',
+      allDay: false
     },
     {
-        title: 'Shift #2',
-        editable: true,
-        start: '2018-01-10T09:30:00',
-        end: '2018-01-10T12:30:00',
-        allDay: false
+      title: 'Shift #2',
+      editable: true,
+      start: '2018-01-10T09:30:00',
+      end: '2018-01-10T12:30:00',
+      allDay: false
     }
   ]
 })
