@@ -32,7 +32,7 @@
     "jsonwebtoken": "^7.4.3",
     "leaflet": "^1.2.0",
     "leaflet-providers": "^1.1.17",
-    "locutus": "^2.0.9",
+    "locutus": "^2.0.13",
     "lynx": "^0.2.0",
     "moment": "^2.20.1",
     "mustache": "^2.3.0",
